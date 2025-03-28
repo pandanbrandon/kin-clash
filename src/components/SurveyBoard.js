@@ -1,9 +1,6 @@
 import React, {useState} from "react";
 
 const SurveyBoard = () => {
-  
-  
-  
   return(
         <div className="survey-board">
           <div className="board-row">

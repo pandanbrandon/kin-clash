@@ -18,6 +18,8 @@ const PlayerAnswerField = () => {
     const handleEnterKey = (e) => {
         if (e.key === 'Enter'){
             console.log('Player typed: ', playerAnswer);
+
+            setPlayerAnswer("");
         }
 
         // Checks if 'fruit' contains 'whatPlayerTyped', case-insensitive
@@ -25,7 +27,7 @@ const PlayerAnswerField = () => {
             fruit.toLowerCase() === playerAnswer.toLowerCase());
 
         if(isInArray){
-        console.log({playerAnswer}, ' is in the list');
+            console.log({playerAnswer}, ' is in the list');
         }
     }
 

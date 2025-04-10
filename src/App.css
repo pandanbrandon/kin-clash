@@ -65,3 +65,22 @@
 .prompt {
   text-align: center;
 }
+
+
+
+
+/* ----- Dev Notes Sidebar -----*/
+.dev-notes {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 15px;
+  border-radius: 10px 0 0 10px;
+  width: 200px;
+  font-size: 0.9rem;
+  z-index: 999;
+}
+

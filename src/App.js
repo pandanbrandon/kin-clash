@@ -18,7 +18,6 @@ function App() {
   
   return (
     <div className="App">
-      <>
         <h3 className="prompt">What fruit do people like to eat?</h3>
         
         <SurveyBoard updatedBoard={currentBoard}/>
@@ -31,7 +30,16 @@ function App() {
           answersBoard={answersBoard}
           setCurrentBoard={setCurrentBoard}  
         />
-      </>
+
+        <footer className="footer-notes">
+          <p><strong>Notes 4/9/25: </strong> 
+            Players can now guess and see changes to the board if its correct |
+            Survey board changed from hard coded html to dynamic changing array |
+            Created "handlePlayerAnswer" to update the array | 
+            Learned callbacks/ callback features of set~~~ + .map()
+          </p>
+          <p>~B</p>
+        </footer>
     </div>
   );
 }

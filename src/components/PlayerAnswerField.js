@@ -57,8 +57,6 @@ const PlayerAnswerField = ({answersBoard, setCurrentBoard}) => {
         
             // clears textbox
             setPlayerAnswer("");
-
-            document.getElementById("player-input").blur(); // Close mobile keyboard
     }
 
     
@@ -81,7 +79,7 @@ const PlayerAnswerField = ({answersBoard, setCurrentBoard}) => {
             </div>
         </div>
     );
-}
+};
 
 export default PlayerAnswerField;
 

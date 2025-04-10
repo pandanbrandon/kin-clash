@@ -37,7 +37,8 @@ function App() {
             Survey board changed from hard coded html to dynamic changing array |
             Created "handlePlayerAnswer" to update the array | 
             Learned callbacks/ callback features of set~~~ + .map() |
-            Added button, isolated submit function so enter and button works
+            Added button, isolated submit function so enter and button works |
+            Not case sensitive
           </p>
           <p>~B</p>
         </footer>

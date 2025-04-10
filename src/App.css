@@ -109,6 +109,8 @@
   z-index: 999;
 }
 
+
+/* for mobile */
 @media (max-width: 600px) {
   .input-button-wrapper {
     flex-direction: column; /* Stack input and button vertically */

@@ -109,3 +109,23 @@
   z-index: 999;
 }
 
+
+
+
+
+@media (max-width: 600px) {
+  .input-button-wrapper {
+    flex-direction: column; /* Stack input and button vertically */
+    width: 100%; /* Full width */
+    gap: 15px; /* Space between input and button */
+  }
+
+  .player-input {
+    width: 100%; /* Make the input field full width */
+  }
+
+  .submit-button {
+    width: 100%; /* Make the button full width */
+  }
+}
+

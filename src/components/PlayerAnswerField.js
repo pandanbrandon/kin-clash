@@ -6,7 +6,7 @@ const PlayerAnswerField = ({answersBoard, setCurrentBoard}) => {
     const [playerAnswer, setPlayerAnswer] = useState('');
     
     const handleChange = (e) => {
-        setPlayerAnswer(e.target.value); // update state as player types
+        setPlayerAnswer(e.target.value.toLowerCase()); // update state as player types
 
                 // e is the event object,
                 // e.target is the input element (element triggering event), 

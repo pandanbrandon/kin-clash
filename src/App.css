@@ -1,74 +1,67 @@
-/* Survery Board */
+/* Survey Board */
 .survey-board {
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* Controls vertical space between rows (reduce further if needed) */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two-column layout */
+  gap: 10px; /* Space between items */
   max-width: 600px;
   margin: 0 auto;
-  padding: 0; /* Ensure no extra padding */
-}
-  
-.board-row {
-  display: flex;
-  gap: 10px; /* Horizontal space between boxes (keep if you want side spacing) */
-  justify-content: center;
-  margin: 0; /* Remove default margins */
-  padding: 0; /* Remove default padding */
-}
-  
-.box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  height: 60px;
-  background-color: #e95f5f;
-  color: white;
-  border-radius: 10px;
-  font-size: 2.5rem;
-  transition: background-color 0.3s, transform 0.6s ease-in-out;
-  margin: 0;
   padding: 0;
 }
 
-.box:hover {
-  transform: scale(1.05);
-  transition: transform 0.2s ease-in-out;
+/* Survey Box (individual items in the board) */
+.survey-box {
+  border: 2px solid black;
+  background-color: rgb(221, 98, 98);
+  padding: 10px;
+  margin: 5px;
+  width: 150px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: black;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
 }
-  
 
-/* Computer Response */
+.survey-box:hover {
+  transform: scale(1.05);
+}
+
+/* Computer Response Container */
 .input-container {
   display: flex;
-  justify-content: center; /* Centers input horizontally */
-  padding: 20px; /* Optional spacing */
+  justify-content: center;
+  padding: 20px;
 }
 
-/* this is for adding red outline to see padding
-.input-container {
-  border: 2px dotted red; /* Dotted border */
-
-
-/* player input box */
+/* Player Input Container */
 .player-input-container {
   display: flex;
-  justify-content: center; /* Centers input horizontally */
-  padding: 20px; /* Optional spacing */
+  justify-content: center;
+  padding: 20px;
 }
 
+/* Player Input Box */
 .player-input {
-  width: 50%; /* Makes input take up more horizontal space */
-  height: 25px; /* Increases input height */
-  font-size: 1rem; /* Makes text inside bigger */
-  padding: 10px; /* Adds spacing inside */
-  border: 2px solid black; /* Optional: Border for visibility */
-  border-radius: 50px;
-  padding-left: 20px; /* Moves cursor to the right */
+  display: block;
+  margin: 50px auto;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 50%;
 }
 
+/* Feedback Text */
+.feedback-text {
+  text-align: center;
+  font-size: 2rem;
+}
 
-
-  
-  
-  
-  
+/* Prompt Text */
+.prompt {
+  text-align: center;
+}

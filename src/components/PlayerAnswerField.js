@@ -1,9 +1,7 @@
 import React, {use, useState} from "react";
 import SurveyBoard from "./SurveyBoard";
 
-const PlayerAnswerField = () => {
-    const currentSurvey = ['watermelon', 'apple', 'orange', 
-        'grapes', 'banana', 'strawberry' ];
+const PlayerAnswerField = ({answersBoard, setCurrentBoard}) => {
     
     const [playerAnswer, setPlayerAnswer] = useState('');
     
@@ -15,26 +13,45 @@ const PlayerAnswerField = () => {
                 // e.target.value is the value the player typed
     }
 
-    const handleEnterKey = (e) => {
-        if (e.key === 'Enter'){
-            console.log('Player typed: ', playerAnswer);
 
+    // handlePlayerAnswer() The core of the game
+    const handlePlayerAnswer = (answer, currentBoard) => {
+        // make a copy of currentBoard, cuz its 'read-only'
+        const updatedBoard = [...currentBoard]; // ... = spread
+        const indexOfCorrectAnswer = answersBoard.indexOf(answer); // index of answer
+
+        if (indexOfCorrectAnswer !== -1) {
+            updatedBoard[indexOfCorrectAnswer] = answersBoard[indexOfCorrectAnswer];
+        } else {
+        // don't change board, give X
+        console.log("X, not on board!");
+        }
+        return updatedBoard;
+    };
+
+    // Enter key
+    const handleEnterKey = (e) => {
+        if (e.key === "Enter") {
+            console.log("player's answer: ", playerAnswer);
+      
+            // Update the board state immutably
+            // prevBoard is the current 'state' value, in this case current val of currentBoard
+            setCurrentBoard(
+              (prevBoard) => handlePlayerAnswer(playerAnswer, prevBoard) // computes NEW state value
+            );
+      
+            /*
+              ^^ the new state depends on the previous state (prevBoard).
+              This makes the CALLBACK necessary to ensure we’re working 
+              with the most recent and correct version of currentBoard.
+      
+              This is where we actually use handlePlayerAnswer
+            */
+        
+            // clears textbox
             setPlayerAnswer("");
         }
-
-        // Checks if 'fruit' contains 'whatPlayerTyped', case-insensitive
-        const isInArray = currentSurvey.some(fruit => 
-            fruit.toLowerCase() === playerAnswer.toLowerCase());
-
-        if(isInArray){
-            console.log({playerAnswer}, ' is in the list');
-        }
-    }
-
-    // isInArray will be isOnBoard (fruit thing is a test)
-    const isOnBoard = () => {
-        
-    }
+    };
 
     
     // ----------| Return |----------
@@ -43,7 +60,6 @@ const PlayerAnswerField = () => {
             <input 
                 className="player-input"
                 placeholder="Type answer here..."
-
                 value={playerAnswer}
                 onChange={handleChange} // As player types
                 onKeyDown={handleEnterKey} // When enter key is pressed
@@ -53,6 +69,5 @@ const PlayerAnswerField = () => {
 }
 
 export default PlayerAnswerField;
-
 
 

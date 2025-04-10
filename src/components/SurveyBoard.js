@@ -1,22 +1,24 @@
 import React, {useState} from "react";
 
-const SurveyBoard = () => {
+const SurveyBoard = ({updatedBoard}) => {
+
+  // idea: main function is a dynamically changing array
   return(
-        <div className="survey-board">
-          <div className="board-row">
-            <p className="box">1</p>
-            <p className="box">2</p>
-          </div>
-          <div className="board-row">
-            <p className="box">3</p>
-            <p className="box">4</p>
-          </div>
-          <div className="board-row">
-            <p className="box">5</p>
-            <p className="box">6</p>
-          </div>
-        </div>
-    );
+    <div className="survey-board">
+      {updatedBoard.map(
+      (
+        item,
+        index // item, element at index... well indexOf
+      ) => (
+        // (currentElement, currentElementIndex)
+        <p key={index} className="survey-box">
+          {item}
+        </p>
+      )
+    )}
+    </div>
+    
+  );
 }
 
 export default SurveyBoard;

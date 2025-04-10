@@ -36,7 +36,8 @@ function App() {
             Players can now guess and see changes to the board if its correct |
             Survey board changed from hard coded html to dynamic changing array |
             Created "handlePlayerAnswer" to update the array | 
-            Learned callbacks/ callback features of set~~~ + .map()
+            Learned callbacks/ callback features of set~~~ + .map() |
+            Added button, isolated submit function so enter and button works
           </p>
           <p>~B</p>
         </footer>

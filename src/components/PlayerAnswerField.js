@@ -32,8 +32,15 @@ const PlayerAnswerField = ({answersBoard, setCurrentBoard}) => {
     // Enter key
     const handleEnterKey = (e) => {
         if (e.key === "Enter") {
-            console.log("player's answer: ", playerAnswer);
-      
+            submitAnswer();
+        }
+    };
+
+    // submitAnswer func - resuse the ability to submit cuz i want 
+    // enter AND a button
+
+    const submitAnswer = () => {
+        console.log("player's answer: ", playerAnswer);
             // Update the board state immutably
             // prevBoard is the current 'state' value, in this case current val of currentBoard
             setCurrentBoard(
@@ -50,20 +57,26 @@ const PlayerAnswerField = ({answersBoard, setCurrentBoard}) => {
         
             // clears textbox
             setPlayerAnswer("");
-        }
-    };
+    }
 
     
     // ----------| Return |----------
     return (
         <div className="player-input-container">
-            <input 
-                className="player-input"
-                placeholder="Type answer here..."
-                value={playerAnswer}
-                onChange={handleChange} // As player types
-                onKeyDown={handleEnterKey} // When enter key is pressed
-            ></input>
+            <div className="input-button-wrapper">
+                <input 
+                    className="player-input"
+                    placeholder="Type answer here..."
+                    value={playerAnswer}
+                    onChange={handleChange} // As player types
+                    onKeyDown={handleEnterKey} // When enter key is pressed
+                />
+                
+                <button
+                    className="submit-button"
+                    onClick={submitAnswer}
+                >Submit</button>
+            </div>
         </div>
     );
 }

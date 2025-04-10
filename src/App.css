@@ -66,7 +66,31 @@
   text-align: center;
 }
 
+/* submit button */
+.submit-button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-color: #504f58; /* Soft pink */
+  color: white;
+  border: none;
+  border-radius: 999px; /* Super rounded */
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
+.submit-button:hover {
+  transform: scale(1.05);
+}
+
+.input-button-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 60%; /* Optional: adjust width */
+}
 
 
 /* ----- Dev Notes Sidebar -----*/

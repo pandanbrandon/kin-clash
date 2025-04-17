@@ -43,7 +43,7 @@ function App() {
 
         <footer className="footer-notes">
           <p><strong>Notes 4/16/25: </strong> 
-            Added an unfinshed strike system. If you give an answer thats not on 
+            Added an unfinshed strike feature. If you give an answer thats not on 
             the board, an X will be added up in "Strikes:" | Modified answers for fruit,
             see if you can get all 6 now
           </p>

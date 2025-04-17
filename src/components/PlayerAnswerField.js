@@ -1,7 +1,7 @@
 import React, {use, useState} from "react";
 import SurveyBoard from "./SurveyBoard";
 
-const PlayerAnswerField = ({answersBoard, setCurrentBoard}) => {
+const PlayerAnswerField = ({answersBoard, setCurrentBoard, strikes, setStrikes}) => {
     
     const [playerAnswer, setPlayerAnswer] = useState('');
     
@@ -14,17 +14,27 @@ const PlayerAnswerField = ({answersBoard, setCurrentBoard}) => {
     }
 
 
-    // handlePlayerAnswer() The core of the game
+    // handlePlayerAnswer() The core of the game, checks if user input 
+    // matches/exists in board array.
+    // This updates the board/array, returns updated array. 
     const handlePlayerAnswer = (answer, currentBoard) => {
         // make a copy of currentBoard, cuz its 'read-only'
         const updatedBoard = [...currentBoard]; // ... = spread
         const indexOfCorrectAnswer = answersBoard.indexOf(answer); // index of answer
 
+        // feature of .indexOf() - returns index number of element (case sense, exact)
+        // if it doesn't exist at all (wrong answer) it returns -1
         if (indexOfCorrectAnswer !== -1) {
             updatedBoard[indexOfCorrectAnswer] = answersBoard[indexOfCorrectAnswer];
         } else {
-        // don't change board, give X
-        console.log("X, not on board!");
+            // don't change board, give X
+            console.log("X, not on board!");
+
+            // use setStrikes to update/add strikes to strikes array
+            const updatedStrikes = [...strikes, ' X'];
+
+            setStrikes(updatedStrikes);
+
         }
         return updatedBoard;
     };
@@ -39,6 +49,7 @@ const PlayerAnswerField = ({answersBoard, setCurrentBoard}) => {
     // submitAnswer func - resuse the ability to submit cuz i want 
     // enter AND a button
 
+    // uses setCurrentBoard to finally update the board using handlePlayerAnswer
     const submitAnswer = () => {
         console.log("player's answer: ", playerAnswer);
             // Update the board state immutably
@@ -60,7 +71,7 @@ const PlayerAnswerField = ({answersBoard, setCurrentBoard}) => {
     }
 
     
-    // ----------| Return |----------
+    ////// Return //////
     return (
         <div className="player-input-container">
             <div className="input-button-wrapper">
